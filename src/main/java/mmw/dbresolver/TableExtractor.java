@@ -10,6 +10,12 @@ public class TableExtractor {
      HashMap<String, HashMap<Integer, String>> tabelNameContentMap;
      List<String> relatedTables = new ArrayList<>();
 
+
+    /***
+     *
+     * init creates content hashmap
+     * @param tabelNameContentMap
+     */
     public void init(HashMap<String, HashMap<Integer, String>> tabelNameContentMap){
         this.tabelNameContentMap = tabelNameContentMap;
     }
