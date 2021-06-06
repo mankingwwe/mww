@@ -13,7 +13,7 @@ public class TableExtractor {
 
     /***
      *
-     * init creates content hashmap
+     * init creates content hashmap and sets its value
      * @param tabelNameContentMap
      */
     public void init(HashMap<String, HashMap<Integer, String>> tabelNameContentMap){
