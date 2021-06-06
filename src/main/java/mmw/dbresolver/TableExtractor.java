@@ -44,21 +44,23 @@ public class TableExtractor {
             String key = table.getKey();
             int keyFrom = 0;
             int keywhere = 0;
+            boolean flagFrom = false;
             int c = 0;
             HashMap<Integer, String> value = table.getValue();
                  for(Map.Entry<Integer, String> line : value.entrySet()) {
-                    if(line.getValue().contains("from")){
+                    if(line.getValue().contains("from") && !flagFrom){
                         keyFrom = line.getKey();
+                        flagFrom = true;
                     }
                     if(line.getValue().contains("where")){
                         keywhere = line.getKey();
                     }
-                    if(keyFrom != 0 && keywhere != 0 && c == 0){
-                        System.out.println("Table: " + table.getKey() +  "  from: " + keyFrom+  "  where: " + keywhere );
-                        Object h = extractRelevantTableCode(value, keyFrom,keywhere);
-                        c++;
-                    }
                 }
+            if(keyFrom != 0 && keywhere != 0 && c == 0){
+                System.out.println("Table: " + table.getKey() +  "  from: " + keyFrom+  "  where: " + keywhere );
+                Object h = extractRelevantTableCode(value, keyFrom,keywhere);
+                c++;
+             }
             }
 
     }
