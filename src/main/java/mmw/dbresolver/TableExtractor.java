@@ -40,6 +40,7 @@ public class TableExtractor {
      */
 
     public void searchForFromAndWhereKeyWordAndExtract(){
+        List< HashMap<Integer, String>> allExtractedCodeParts = new ArrayList<HashMap<Integer, String>>();
         for(Map.Entry<String, HashMap<Integer, String>> table : tabelNameContentMap.entrySet()) {
             String key = table.getKey();
             int keyFrom = 0;
@@ -56,13 +57,16 @@ public class TableExtractor {
                         keywhere = line.getKey();
                     }
                 }
-            if(keyFrom != 0 && keywhere != 0 && c == 0){
-                System.out.println("Table: " + table.getKey() +  "  from: " + keyFrom+  "  where: " + keywhere );
-                Object h = extractRelevantTableCode(value, keyFrom,keywhere);
-                c++;
-             }
+                if(keyFrom != 0 && keywhere != 0){
+                    System.out.println("Table: " + table.getKey() +  "  from: " + keyFrom+  "  where: " + keywhere );
+                    allExtractedCodeParts.add(extractRelevantTableCode(value, keyFrom,keywhere));
+                 }
             }
+        extractTables(allExtractedCodeParts);
 
+    }
+
+    public void extractTables(List< HashMap<Integer, String>> allExtractedCodeParts){
     }
 
 }
