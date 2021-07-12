@@ -42,7 +42,7 @@ public class TableExtractor {
     /**
      * searches in all the lines for "FROM" and "WHERE" keyword and remembers its lines.
      * calls method --extractRelevantTableCode-- and uses these lines to create new Hashmap for further
-     * operations.
+     * operations
      */
 
     public void searchForFromAndWhereKeyWordAndExtract(){
